@@ -1,7 +1,0 @@
-Contributed to the conceptualization and planning of the ParkEase project by participating in brainstorming sessions and helping refine the project idea, features, and overall system workflow.
-Prepared the project proposal and designed the PowerPoint presentation (PPT) to present the project objectives, methodology, system architecture, and expected outcomes.
-Started Developing the backend of the ParkEase application by implementing the server-side logic, APIs, database connectivity, user authentication, parking slot management, reservation handling, payment processing, and administrative functionalities.
-Tested the backend APIs to ensure correct communication between the application and the database, and verified that all core features were functioning as expected using postman.
-Created the Use Case Diagram to illustrate the interactions between users, administrators, and the ParkEase system, ensuring that all major functionalities and workflows were accurately represented.
-Verified the backend implementation and refined the diagrams to maintain consistency with the system requirements and project design.
-Helped inthe Data Flow Diagram (DFD) to represent the flow of data between external entities, system processes, and data stores in the ParkEase system.
