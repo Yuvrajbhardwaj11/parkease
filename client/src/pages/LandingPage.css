@@ -1,0 +1,18 @@
+.landing {
+  min-height: 100vh;
+  background: var(--gradient-hero), var(--bg-deep);
+}
+
+.landing main > section {
+  padding-block: 5rem;
+}
+
+.landing main > section:nth-child(even) {
+  background: rgba(17, 24, 32, 0.5);
+}
+
+@media (max-width: 768px) {
+  .landing main > section {
+    padding-block: 3.5rem;
+  }
+}

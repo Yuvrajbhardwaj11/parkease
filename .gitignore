@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# env files (never commit real secrets)
+.env
+.env.local
+**/.env
+**/.env.local
+
+# build output
+client/dist/
+.vercel/
+
+# logs
+npm-debug.log*
+*.log

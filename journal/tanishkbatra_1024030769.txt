@@ -1,0 +1,5 @@
+Contributed to the **design and development of the Data Flow Diagram (DFD)** for the ParkEase system, identifying major processes, entities, data stores, and data flows.
+Worked on the **front-end development**, focusing on the user interface and overall layout of the ParkEase application.
+Contributed to the **project proposal**, including the problem statement, objectives, proposed solution, and future scope.
+Participated in discussions with the team to refine the **system workflow and overall functionality** of ParkEase.
+Helped ensure that the diagrams and proposed features were aligned with the overall **parking management workflow and project objectives.

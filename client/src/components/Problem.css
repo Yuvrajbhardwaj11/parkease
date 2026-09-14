@@ -1,0 +1,44 @@
+.problem {
+  background: var(--white);
+}
+
+.problem .section-subtitle {
+  margin-bottom: 3rem;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.problem-card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: #f1f5f9;
+  border: 1px solid var(--gray-100);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.problem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(11, 29, 58, 0.08);
+}
+
+.problem-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.problem-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.problem-card p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.55;
+}

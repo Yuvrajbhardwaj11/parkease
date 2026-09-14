@@ -1,0 +1,74 @@
+.workflow {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.workflow .section-label {
+  color: var(--amber);
+}
+
+.workflow .section-subtitle {
+  color: rgba(248, 250, 252, 0.65);
+}
+
+.workflow-header {
+  margin-bottom: 3rem;
+}
+
+.workflow-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0;
+}
+
+.workflow-step {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 1rem;
+}
+
+.step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 212, 170, 0.15);
+  color: var(--teal);
+  font-weight: 800;
+  font-size: 0.82rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(0, 212, 170, 0.3);
+}
+
+.step-line {
+  width: 2px;
+  flex: 1;
+  min-height: 24px;
+  background: rgba(248, 250, 252, 0.12);
+  margin-top: 0.5rem;
+}
+
+.step-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.step-body p {
+  font-size: 0.88rem;
+  color: rgba(248, 250, 252, 0.6);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .workflow-track {
+    grid-template-columns: 1fr;
+  }
+}

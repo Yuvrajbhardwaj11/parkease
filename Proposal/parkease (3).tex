@@ -1,0 +1,437 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------------------------------------------------------
+% PACKAGES
+% ---------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+
+% ---------------------------------------------------------
+% PAGE SETUP
+% ---------------------------------------------------------
+\geometry{
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+}
+
+\setstretch{1.15}
+
+% ---------------------------------------------------------
+% SECTION FORMATTING
+% ---------------------------------------------------------
+\titleformat{\section}
+    {\large\bfseries}
+    {\thesection}
+    {0.5em}
+    {}
+
+\titleformat{\subsection}
+    {\normalsize\bfseries}
+    {\thesubsection}
+    {0.5em}
+    {}
+
+% ---------------------------------------------------------
+% HYPERLINK SETUP
+% ---------------------------------------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+\setlength{\parindent}{0pt}
+% ---------------------------------------------------------
+% DOCUMENT
+% ---------------------------------------------------------
+\usepackage{graphicx}
+\begin{document}
+
+% =========================================================
+% TITLE
+% =========================================================
+
+\begin{center}
+
+    {\LARGE \textbf{ParkEase}}\\[0.3cm]
+
+    {\Large \textbf{City-Wide Intelligent \& Queue-less Parking Ecosystem}}\\[0.7cm]
+
+    Project Proposal For UCS503P\\
+    Submitted to: Mr. Jeelani Asif\\
+    \textbf{Thapar Institute of Engineering and Technology}\\
+    Soham Kumar,CSED\hspace{0.5cm}
+    Yuvraj Bhardwaj,CSED\hspace{0.5cm}
+    Tanishk Batra,CSED\\
+
+    \vspace{0.5cm}
+
+    August 14,2026
+
+\end{center}
+
+% =========================================================
+% 1. HIGHER-ORDER GOAL
+% =========================================================
+
+\section{Higher-order goal}
+
+ParkEase aims to simplify urban parking by connecting parking facilities through a unified platform. The immediate engineering goal is to reduce the time and effort required to find, access, and pay for parking through an integrated digital workflow.
+
+% =========================================================
+% 2. TIME-TO-VALUE
+% =========================================================
+
+\section{Time-to-value}
+
+ParkEase will prioritize the core parking journey first, focusing on delivering a functional end-to-end system before adding advanced extensions.
+
+\begin{itemize}
+    \item We will first implement the essential workflow covering parking discovery, recommendation, reservation, entry verification and dynamic slot allocation.
+
+    \item We will prioritize a working end-to-end parking experience over advanced features in the initial implementation, allowing the core workflow to be developed and validated first.
+
+    \item Features such as predictive occupancy, automated billing, wallet system, ML-based ranking, dynamic pricing, EV charging integration, and cross-city interoperability can be introduced incrementally after the core system is established.
+\end{itemize}
+
+% =========================================================
+% 3. PROBLEM STATEMENT
+% =========================================================
+\newpage
+\section{Problem Statement}
+
+In high-density cities such as New York, Rome, and Paris, parking is fragmented across multiple independent facilities. Drivers often lack a unified view of available parking near their destination and may spend significant time searching for a suitable space.
+
+The major problems include:
+
+\begin{itemize}
+    \item \textbf{No city-wide view:} Every parking facility may operate its own system, making it difficult for drivers to see available parking options in one place.
+
+    \item \textbf{Wasted time and fuel:} Drivers may circle blocks or search multiple locations for an available parking space, wasting time and fuel.
+
+    \item \textbf{Entrance queues:} Paper tickets, gates, and manual entry checks can create queues at parking entrances, especially during busy periods.
+
+    \item \textbf{Slow checkout and exit:} Cash, cards, and manual payment processes can delay drivers at the exit and create another bottleneck after parking.
+
+    \item \textbf{Unreliable advance reservations:} Advance reservations can become problematic when parking demand is high or availability is low. Allowing reservations during such periods can reduce flexibility for arriving vehicles and increase the risk of unavailable spaces. ParkEase therefore enables reservations only when sufficient capacity is available and demand is not at rush-hour levels.
+\end{itemize}
+
+% =========================================================
+% 4. PROPOSED SOLUTION
+% =========================================================
+
+\newpage
+\section{Proposed Solution}
+
+\subsection{Overview}
+
+ParkEase proposes a single platform that connects parking facilities across a city. Users can register their vehicle once, enter their destination, receive a suitable parking recommendation, reserve parking capacity, make payment, and navigate to the selected facility.
+
+When the vehicle arrives, ANPR automatically identifies the vehicle and enables entry. The exact parking slot is assigned dynamically using live occupancy information rather than being fixed long before arrival.
+
+At exit, the system automatically calculates the bill based on the actual parking duration. The user can complete a digital payment or use the ParkEase Wallet for automatic deduction. After payment confirmation, a timed exit authorization is provided and the occupied slot is released.
+
+\subsection{Core workflow}
+
+The proposed workflow consists of the following stages:
+
+\begin{enumerate}
+    \item \textbf{Register Once}
+    
+    User registers an account and vehicle.
+
+    \item \textbf{Enter Destination}
+    
+    User enters the desired destination.
+
+    \item \textbf{Check Reservation Eligibility}
+    
+    ParkEase checks the current parking availability and demand conditions to determine whether advance reservation is enabled. Reservation is available only when sufficient parking capacity exists and the facility is not experiencing rush-hour demand.
+
+    \item \textbf{Get Recommendation}
+    
+    ParkEase recommends a suitable parking facility. If reservation is enabled, the user can reserve parking capacity. Otherwise, the user can proceed directly to the facility without an advance reservation.
+
+    \item \textbf{Reserve, Pay and Navigate}
+    
+    If reservation is enabled, the user reserves parking capacity, completes payment, and navigates to the selected facility.
+
+    \item \textbf{ANPR Entry Scan}
+    
+    ANPR scans the vehicle number plate at the entrance and verifies the vehicle.
+
+    \item \textbf{Dynamic Slot Allocation}
+    
+    The system assigns an exact physical parking slot based on current occupancy and the user's preferences.
+
+    \item \textbf{Park}
+    
+    The entrance barrier opens and the user parks in the assigned slot.
+
+    \item \textbf{Exit Request}
+    
+    The user requests exit after completing the parking session.
+
+    \item \textbf{Automatic Billing}
+    
+    The system calculates the parking charge based on the actual parking duration.
+
+    \item \textbf{Payment or Auto-Deduction}
+    
+    The user pays digitally or uses automatic deduction through the ParkEase Wallet.
+
+    \item \textbf{Timed Exit and ANPR}
+    
+    After payment confirmation, the system provides a timed exit authorization and verifies the vehicle using ANPR.
+
+    \item \textbf{Slot Release}
+    
+    The parking slot is released after the vehicle exits.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{aaakk.png}
+\end{figure}
+
+\subsection{Operational considerations}
+
+The system is designed around the principle of reducing unnecessary manual interaction during the parking journey. Real-time availability, automatic vehicle recognition, dynamic slot allocation, digital payment, and timed exit authorization are intended to reduce delays at the most important points of the parking process.
+
+% =========================================================
+% 5. SOLUTION APPROACH
+% =========================================================
+
+\section{Solution Approach}
+
+ParkEase is primarily a software and systems engineering project. The focus is on integrating parking discovery, reservation, real-time occupancy, automated access, slot allocation, billing, and payment into one connected workflow.
+
+\subsection{Parking discovery and recommendation}
+
+The system allows users to enter a destination and receive a parking recommendation. The recommendation can consider the availability of connected facilities and user preferences such as proximity, vehicle type, EV charging, and floor preference.
+
+\subsection{Conditional Reservation}
+
+ ParkEase enables advance reservations only during periods when sufficient parking capacity is available and demand is below the defined rush-hour threshold. A reservation reduces the facility's available capacity but does not assign a specific physical slot. When the vehicle arrives, an appropriate slot is allocated dynamically based on current occupancy and user preferences.
+ 
+\subsection{Dynamic slot allocation}
+
+ParkEase separates reservation from exact slot assignment. The user reserves parking capacity before arrival, while the exact slot is allocated when the vehicle reaches the facility.
+
+This approach uses current occupancy information to reduce the problem of stale slot assignments and ensures that allocation is based on the live state of the parking facility.
+
+\subsection{ANPR-based access}
+
+ANPR cameras are used at parking entrances and exits to identify vehicles automatically. This reduces dependence on paper tickets and manual entry verification.
+
+The vehicle number plate is associated with the user's registered vehicle, allowing the system to verify the vehicle and control the parking barrier.
+
+\subsection{Automated billing and payment}
+
+The parking session records the vehicle's usage. At exit, the system automatically calculates the parking charge based on the actual parking duration.
+
+Users can complete payment digitally or use the ParkEase Wallet for automatic deduction.
+
+% =========================================================
+% 6. IMPORTANT FEATURES
+% =========================================================
+
+\section{Important Features}
+
+\subsection{Real-time occupancy and availability}
+
+ParkEase provides live visibility into open, occupied, and reserved parking capacity across connected facilities. This allows users to make parking decisions using current availability information.
+
+\subsection{Conditional reservation}
+
+ParkEase enables advance reservation only when sufficient parking capacity is available and the facility is not experiencing rush-hour demand. During periods of high demand or low availability, reservation is temporarily disabled, while direct parking remains available.
+
+When a reservation is made, the system reserves parking capacity but does not assign a specific physical slot. The exact slot is allocated dynamically when the vehicle arrives based on current occupancy and user preferences.
+
+\subsection{Dynamic slot allocation}
+
+The exact slot is assigned only when the vehicle arrives. The allocation uses live occupancy information to provide an accurate slot assignment.
+
+\subsection{Customizable preferences}
+
+Users can specify preferences such as:
+
+\begin{itemize}
+    \item Vehicle type
+    \item EV charging requirement
+    \item Proximity to the destination
+\end{itemize}
+
+The system can then allocate a suitable slot matching the selected requirements.
+
+\subsection{Timed exit window}
+
+After payment is confirmed, the system provides a timed authorization for exit along with a configurable grace period. This gives the user time to reach the exit after completing payment.
+
+\subsection{ParkEase Wallet}
+
+The ParkEase Wallet provides a FASTag-style payment experience for frequent and local users. A linked vehicle can use automatic deduction at exit, reducing the need for a manual payment step.
+
+\subsection{Hybrid access}
+
+ParkEase supports both one-time visitors and frequent users. One-time visitors can use flexible digital payment options, while local and frequent users can use wallet-based automatic payment.
+
+% =========================================================
+% 7. SCALABILITY
+% =========================================================
+
+\section{Scalability}
+
+ParkEase is designed with the possibility of expanding from individual parking facilities to a city-wide network of connected parking operators.
+
+The system can scale by:
+
+\begin{itemize}
+    \item Connecting multiple parking facilities through a common platform.
+
+    \item Separating frontend, backend, database, real-time services, and external hardware integrations into modular components.
+
+    \item Using real-time communication for continuously updated occupancy information.
+
+    \item Supporting additional parking facilities without changing the fundamental user workflow.
+
+    \item Extending the platform to additional cities and parking operators.
+\end{itemize}
+
+The long-term goal is to transform ParkEase from a parking booking application into a city-level parking orchestration platform.
+
+% =========================================================
+% 8. ENGINE AVAILABILITY HEURISTIC
+% =========================================================
+
+\section{Engine availability heuristic}
+
+A mature set of technologies and services is available to implement the proposed ParkEase system.
+
+The planned components include:
+
+\begin{itemize}
+    \item React / React Native for the frontend application.
+
+    \item Node.js and Express for backend REST APIs.
+
+    \item MongoDB for application and parking data.
+
+    \item Redis / WebSockets for real-time communication.
+
+    \item Computer-vision and OCR services for ANPR.
+
+    \item Payment gateway and ParkEase Wallet for digital payments.
+
+    \item ANPR cameras, barriers, and occupancy sensors for physical parking infrastructure.
+\end{itemize}
+
+These components allow the project to focus on integrating the parking workflow, real-time information, automated access, and payment rather than developing the underlying infrastructure from scratch.
+
+% =========================================================
+% 9. PROJECT SCOPE AND DELIVERABLES
+% =========================================================
+
+\section{Project scope and deliverables}
+
+\subsection{Initial deliverable}
+
+The initial implementation will focus on the core parking workflow:
+
+\begin{itemize}
+    \item User and vehicle registration.
+
+    \item Destination-based parking discovery.
+
+    \item Parking facility recommendation.
+
+    \item Parking reservation.
+
+    \item Real-time parking availability.
+
+    \item ANPR-based entry.
+
+    \item Dynamic slot allocation.
+
+    \item Parking session management.
+
+    \item Automatic bill calculation.
+
+    \item Digital payment.
+
+    \item Timed exit authorization.
+
+    \item Slot release after exit.
+\end{itemize}
+
+\subsection{Subsequent deliverables}
+
+Additional capabilities can be introduced after the core workflow:
+
+\begin{itemize}
+    \item ParkEase Wallet for frequent and local users.
+
+    \item More detailed user preferences for parking allocation.
+
+    \item Expanded real-time occupancy integration.
+
+    \item Predictive occupancy.
+
+    \item ML-based parking ranking.
+
+    \item Dynamic pricing.
+
+    \item EV charging integration.
+
+    \item Indoor navigation.
+
+    \item APIs for parking operators.
+
+    \item Cross-city interoperability.
+\end{itemize}
+
+% =========================================================
+% 10. RISKS AND MITIGATIONS
+% =========================================================
+
+\section{Risks and mitigations}
+
+\begin{itemize}
+    \item \textbf{Incorrect occupancy information:} Outdated occupancy information could result in inaccurate parking recommendations. Real-time updates and dynamic slot allocation can reduce this problem.
+
+    \item \textbf{ANPR recognition errors:} Incorrect number plate recognition could affect automatic entry and exit. Vehicle verification can be combined with the registered vehicle information before opening the barrier.
+
+    \item \textbf{Hardware dependency:} The system depends on cameras, barriers, and occupancy sensors. The software should therefore handle communication failures and maintain reliable parking-session information.
+
+    \item \textbf{Payment failures:} Failed or delayed payment confirmation can affect exit processing. The system should maintain payment status and provide an appropriate exit authorization only after successful confirmation.
+
+    \item \textbf{System scalability:} Connecting many parking facilities can increase the amount of real-time information handled by the system. Modular backend and real-time components can support future expansion.
+\end{itemize}
+
+% =========================================================
+% 11. SUMMARY
+% =========================================================
+
+\section{Summary}
+
+ParkEase proposes a city-wide intelligent and queue-less parking ecosystem that connects parking discovery, recommendation, reservation, ANPR-based entry, dynamic slot allocation, automated billing, digital payment, and timed exit into a single platform.
+
+The system addresses major problems associated with urban parking, including the lack of a city-wide parking view, wasted time and fuel, entrance queues, stale slot assignments, and slow checkout and exit processes.
+
+By combining software services with real-time occupancy information, ANPR cameras, parking barriers, sensors, and digital payments, ParkEase aims to provide a seamless parking experience with maximum ease and minimum effort.
+
+The long-term vision is to scale ParkEase across cities and parking operators and extend it with IoT occupancy sensors, indoor navigation, predictive occupancy, ML-based ranking, dynamic pricing, EV charging integration, operator APIs, and cross-city interoperability.
+
+\end{document}

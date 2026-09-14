@@ -1,0 +1,4 @@
+Prepared the project proposal using LaTeX, including the problem statement, objectives, methodology, system architecture, and project timeline.
+Compiled the proposal into a PDF for submission after reviewing the formatting and content.
+Started Developing the backend of the ParkEase application by implementing the server-side logic, APIs, database connectivity, user authentication, parking slot management, reservation handling, payment processing, and administrative functionalities.
+Tested the backend APIs to ensure correct communication between the application and the database, and verified that all core features were functioning as expected.
